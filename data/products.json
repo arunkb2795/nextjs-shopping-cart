@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "item001",
+      "name": "Watch",
+      "price": 9.99,
+      "image": "images/watch.jpg"
+    },
+    {
+      "id": "item002",
+      "name": "Phone",
+      "price": 66.32,
+      "image": "images/phone.jpg"
+    },
+    {
+      "id": "item003",
+      "name": "Laptop",
+      "price": 128.34,
+      "image": "images/laptop.jpg"
+    }
+  ]
+}
