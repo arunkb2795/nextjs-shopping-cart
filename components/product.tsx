@@ -2,12 +2,7 @@ import Image from "next/image";
 import { useShoppingCart } from "@/context/ShoppingCartContext";
 
 export default function Product({ id, name, price, image }: ProductProps) {
-  const {
-    getItemQuantity,
-    increaseItemQuantity,
-    decreaseItemQuantity,
-    removeFromCart,
-  } = useShoppingCart();
+  const { dispatch, getItemQuantity } = useShoppingCart();
 
   const itemQuantity = getItemQuantity(id);
 
@@ -17,14 +12,37 @@ export default function Product({ id, name, price, image }: ProductProps) {
       <div>Name: {name}</div>
       <div>Price: {price}</div>
       <div>Qty: {itemQuantity}</div>
-      <button onClick={() => increaseItemQuantity(id)}>+</button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "INCREASE_ITEM_QUANTITY",
+            payload: { id },
+          })
+        }
+      >
+        +
+      </button>
       <button
         disabled={!!!itemQuantity}
-        onClick={() => decreaseItemQuantity(id)}
+        onClick={() =>
+          dispatch({
+            type: "DECREASE_ITEM_QUANTITY",
+            payload: { id },
+          })
+        }
       >
         -
       </button>
-      <button onClick={() => removeFromCart(id)}>Remove</button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "REMOVE_ITEM_FROM_CART",
+            payload: { id },
+          })
+        }
+      >
+        Remove
+      </button>
     </div>
   );
 }

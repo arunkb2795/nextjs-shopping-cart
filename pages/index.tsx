@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Cart from "@/components/cart";
 import Product from "@/components/product";
 import { ProductContext } from "@/context/ProductContext";
@@ -15,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ display: "flex" }}>
+        <Title>Hello</Title>
         {context?.products?.map((product) => (
           <Product
             key={product.id}
@@ -29,3 +31,7 @@ export default function Home() {
     </>
   );
 }
+
+export const Title = styled.h1`
+  color: red;
+`;
